@@ -1,0 +1,72 @@
+﻿@model AulasPruevas0102.Models.HorariosFijo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HorariosFijo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BloqueHora.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloqueHora.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Espacio.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Espacio.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Materia.NombreMateria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Materia.NombreMateria)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
