@@ -191,6 +191,7 @@
     <Compile Include="Controllers\EspaciosController.cs" />
     <Compile Include="Controllers\FacultadsController.cs" />
     <Compile Include="Controllers\GrupoesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorariosFijoesController.cs" />
     <Compile Include="Controllers\InscripcionMateriasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -289,6 +290,7 @@
     <Content Include="Views\HorariosFijoes\Details.cshtml" />
     <Content Include="Views\HorariosFijoes\Edit.cshtml" />
     <Content Include="Views\HorariosFijoes\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
