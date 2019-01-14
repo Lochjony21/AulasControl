@@ -1,0 +1,42 @@
+﻿@model AulasPruevas0102.Models.Materia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Materia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreMateria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreMateria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupo.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupo.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdMateria }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
