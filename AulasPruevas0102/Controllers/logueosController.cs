@@ -66,12 +66,13 @@ namespace AulasPruevas0102.Controllers
         {
             if (id == null)
             {
+
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             logueo logueo = db.logueos.Find(id);
             if (logueo == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Nombre", logueo.IdUsuario);
             return View(logueo);
@@ -86,12 +87,25 @@ namespace AulasPruevas0102.Controllers
         {
             if (ModelState.IsValid)
             {
+                string password = Helper.EncodePassword(logueo.Clave);
+                var dato = new logueo()
+                {
+                    IdLogueo = logueo.IdLogueo,
+                    IdUsuario = logueo.IdUsuario,
+                    Usuario = logueo.Usuario,
+                    Clave = logueo.Clave,
+                    Estado = logueo.Estado
+                };
                 db.Entry(logueo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Nombre", logueo.IdUsuario);
-            return View(logueo);
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Nombre", logueo.IdUsuario);
+            //return View(logueo);
         }
 
         // GET: logueos/Delete/5

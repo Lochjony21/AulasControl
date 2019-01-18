@@ -193,10 +193,12 @@
     <Compile Include="Controllers\GrupoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorariosFijoesController.cs" />
+    <Compile Include="Controllers\IngresarController.cs" />
     <Compile Include="Controllers\InscripcionMateriasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\logueosController.cs" />
     <Compile Include="Controllers\MateriasController.cs" />
+    <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="Controllers\TelefonoUsuariosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -239,6 +241,7 @@
     <Compile Include="Models\Grupo.cs">
       <DependentUpon>BdAulas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\HorariosFijo.cs">
       <DependentUpon>BdAulas.tt</DependentUpon>
     </Compile>
@@ -291,6 +294,8 @@
     <Content Include="Views\HorariosFijoes\Edit.cshtml" />
     <Content Include="Views\HorariosFijoes\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Panel\Index.cshtml" />
+    <Content Include="Views\Ingresar\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

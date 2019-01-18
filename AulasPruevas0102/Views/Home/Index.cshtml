@@ -5,7 +5,17 @@
 
 <h2>Index</h2>
 
-<div class="list-group">
+<div class="container">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 alert alert-info">
+        <a href="@Url.Action("Create", "Reservas")" class="">Reservas</a>
+    </div>
+    <div class="col-lg-4 alert alert-success">
+        <a href="@Url.Action("Index", "Ingresar")" class="list-group-item">Login</a>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+@*<div class="list-group">
     <a href="@Url.Action("Index", "Bitacoras")" class="list-group-item">Bitácora</a>
     <a href="@Url.Action("Index", "BloqueHoras")" class="list-group-item">Bloque Horas</a>
     <a href="@Url.Action("Index", "Carreras")" class="list-group-item">Carreras</a>
@@ -20,4 +30,4 @@
     <a href="@Url.Action("Index", "Reservas")" class="list-group-item">Reservas</a>
     <a href="@Url.Action("Index", "TelefonoUsuarios")" class="list-group-item">Telefono Usuarios</a>
     <a href="@Url.Action("Index", "Usuarios")" class="list-group-item">Usuarios</a>
-</div>
+</div>*@
