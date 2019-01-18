@@ -144,7 +144,6 @@ C:\Users\maria.ruiz\source\repos\AulasControl\AulasPruevas0102\obj\Debug\AulasPr
 C:\Users\maria.ruiz\source\repos\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.csproj.CopyComplete
 C:\Users\maria.ruiz\source\repos\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.dll
 C:\Users\maria.ruiz\source\repos\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.pdb
-C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.csprojAssemblyReference.cache
 C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.csproj.CoreCompileInputs.cache
 C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.dll
 C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.pdb
@@ -217,3 +216,4 @@ C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\bin\Sy
 C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\bin\System.Web.Mvc.xml
 C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.csproj.CopyComplete
+C:\Users\nathaly.gutierrez\Desktop\Proyecto\AulasControl\AulasPruevas0102\obj\Debug\AulasPruevas0102.csprojAssemblyReference.cache

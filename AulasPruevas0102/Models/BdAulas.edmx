@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="asignacionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="asignacionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bitacora">
           <Key>
             <PropertyRef Name="IdBitacora" />
@@ -118,6 +118,7 @@
           <Property Name="IdBloque" Type="int" />
           <Property Name="Fecha" Type="datetime" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
+          <Property Name="confirmacion" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TelefonoUsuario">
           <Key>
@@ -378,8 +379,7 @@
             <End Role="TelefonoUsuario" EntitySet="TelefonoUsuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="asignacionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -518,6 +518,7 @@
           <Property Name="Estado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BloqueHora" Relationship="Self.FK__Reserva__IdBloqu__47DBAE45" FromRole="Reserva" ToRole="BloqueHoras" />
           <NavigationProperty Name="Espacio" Relationship="Self.FK__Reserva__IdEspac__48CFD27E" FromRole="Reserva" ToRole="Espacio" />
+          <Property Name="confirmacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TelefonoUsuario">
           <Key>
@@ -907,6 +908,7 @@
           <EntitySetMapping Name="Reservas">
             <EntityTypeMapping TypeName="asignacionModel.Reserva">
               <MappingFragment StoreEntitySet="Reserva">
+                <ScalarProperty Name="confirmacion" ColumnName="confirmacion" />
                 <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
                 <ScalarProperty Name="CodigoReservante" ColumnName="CodigoReservante" />
                 <ScalarProperty Name="IdEspacio" ColumnName="IdEspacio" />

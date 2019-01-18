@@ -113,6 +113,7 @@
     <Property Name="IdBloque" Type="int" />
     <Property Name="Fecha" Type="datetime" Nullable="false" />
     <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="confirmacion" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="TelefonoUsuario">
     <Key>

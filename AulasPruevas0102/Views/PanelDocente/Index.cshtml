@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <p>Beinvenido, @Usuario</p>
+            <a href="#">Editar datos</a>
+            <hr />
+            <ul class="list-group">
+                <li class="list-group-item"><a href="@Url.Action("Index", "Materia")" class="list-group-item">Materias</a></li>
+                <li class="list-group-item"><a href="@Url.Action("Index", "HorariosFijo")" class="list-group-item">Horarios</a></li>
+                <li class="list-group-item"><a href="@Url.Action("Index", "InscripcionMateria")" class="list-group-item">Estudiantes</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+</div>

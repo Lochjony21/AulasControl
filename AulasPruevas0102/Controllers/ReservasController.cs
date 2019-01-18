@@ -49,7 +49,7 @@ namespace AulasPruevas0102.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdReserva,CodigoReservante,IdEspacio,IdBloque,Fecha,Estado")] Reserva reserva)
+        public ActionResult Create([Bind(Include = "IdReserva,CodigoReservante,IdEspacio,IdBloque,Fecha,Estado,confirmacion")] Reserva reserva)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace AulasPruevas0102.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdReserva,CodigoReservante,IdEspacio,IdBloque,Fecha,Estado")] Reserva reserva)
+        public ActionResult Edit([Bind(Include = "IdReserva,CodigoReservante,IdEspacio,IdBloque,Fecha,Estado,confirmacion")] Reserva reserva)
         {
             if (ModelState.IsValid)
             {

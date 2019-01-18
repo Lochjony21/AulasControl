@@ -11,18 +11,16 @@ namespace AulasPruevas0102.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Reserva
     {
         public int IdReserva { get; set; }
         public int CodigoReservante { get; set; }
         public Nullable<int> IdEspacio { get; set; }
         public Nullable<int> IdBloque { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime Fecha { get; set; }
         public int Estado { get; set; }
+        public string confirmacion { get; set; }
     
         public virtual BloqueHora BloqueHora { get; set; }
         public virtual Espacio Espacio { get; set; }

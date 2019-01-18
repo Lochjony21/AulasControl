@@ -11,19 +11,14 @@ namespace AulasPruevas0102.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class HorariosFijo
     {
         public int IdHorarios { get; set; }
         public Nullable<int> IdBloque { get; set; }
         public Nullable<int> IdMateria { get; set; }
         public Nullable<int> IdEspacio { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaInicio { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaFin { get; set; }
         public int Estado { get; set; }
     

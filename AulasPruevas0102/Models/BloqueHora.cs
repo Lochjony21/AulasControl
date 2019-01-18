@@ -11,9 +11,7 @@ namespace AulasPruevas0102.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class BloqueHora
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,14 +20,10 @@ namespace AulasPruevas0102.Models
             this.HorariosFijos = new HashSet<HorariosFijo>();
             this.Reservas = new HashSet<Reserva>();
         }
-
+    
         public int IdBloque { get; set; }
         public string Nombre { get; set; }
-        [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode =true)]
         public System.DateTime HoraInicio { get; set; }
-        [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
         public System.DateTime HoraFin { get; set; }
         public string Turno { get; set; }
         public int Estado { get; set; }

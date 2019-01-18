@@ -28,8 +28,10 @@ namespace AulasPruevas0102.Controllers
             {
                 Session["Id"] = dato.IdLogueo;
                 Session["nombre"] = dato.Usuario;
-
-                return RedirectToAction("Index", "Home");
+                //EVALUACION PARA TIPO DE USUARIO
+                //    SI ES ADMIN >pANEL GENERAL
+                //    SI ES DOCEN >pPanel DOCENTE
+                return RedirectToAction("Index", "Panel");
             }
 
             ViewBag.alerta = "vissible";

@@ -118,6 +118,7 @@
     <EntitySetMapping Name="Reservas">
       <EntityTypeMapping TypeName="asignacionModel.Reserva">
         <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="confirmacion" ColumnName="confirmacion" />
           <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
           <ScalarProperty Name="CodigoReservante" ColumnName="CodigoReservante" />
           <ScalarProperty Name="IdEspacio" ColumnName="IdEspacio" />
