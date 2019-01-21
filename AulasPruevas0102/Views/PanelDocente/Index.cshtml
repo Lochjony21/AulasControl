@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
-            <p>Beinvenido, @Usuario</p>
+            <p>Beinvenido, Usuario</p>
             <a href="#">Editar datos</a>
             <hr />
             <ul class="list-group">
@@ -18,6 +18,18 @@
             </ul>
         </div>
         <div class="col-lg-6">
+            <h3> </h3>
+            <div class="alert alert-info">
+                <p>Horario para:</p>
+                <script>
+                    var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                    var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+                    var f = new Date();
+                    document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+                </script>
+            </div>
+            <hr />
+            @{ Html.RenderAction("Horarios"); }
 
         </div>
     </div>
