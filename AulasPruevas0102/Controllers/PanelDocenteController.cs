@@ -19,7 +19,7 @@ namespace AulasPruevas0102.Controllers
         public ActionResult Horarios()
         {
             var query = from a in db.HorariosFijos select a;
-            return PartialView("_HorariosFijos", query.ToList());
+            return PartialView("_HorariosFijo", query.ToList());
         }
         }
 }
