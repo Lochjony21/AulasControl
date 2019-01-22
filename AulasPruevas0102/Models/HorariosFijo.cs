@@ -20,10 +20,10 @@ namespace AulasPruevas0102.Models
         public Nullable<int> IdMateria { get; set; }
         public Nullable<int> IdEspacio { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaInicio { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaFin { get; set; }
         public int Estado { get; set; }
     

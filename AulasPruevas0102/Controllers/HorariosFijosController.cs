@@ -10,18 +10,18 @@ using AulasPruevas0102.Models;
 
 namespace AulasPruevas0102.Controllers
 {
-    public class HorariosFijoesController : Controller
+    public class HorariosFijosController : Controller
     {
         private asignacionEntities db = new asignacionEntities();
 
-        // GET: HorariosFijoes
+        // GET: HorariosFijos
         public ActionResult Index()
         {
             var horariosFijos = db.HorariosFijos.Include(h => h.BloqueHora).Include(h => h.Espacio).Include(h => h.Materia);
             return View(horariosFijos.ToList());
         }
 
-        // GET: HorariosFijoes/Details/5
+        // GET: HorariosFijos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +36,7 @@ namespace AulasPruevas0102.Controllers
             return View(horariosFijo);
         }
 
-        // GET: HorariosFijoes/Create
+        // GET: HorariosFijos/Create
         public ActionResult Create()
         {
             ViewBag.IdBloque = new SelectList(db.BloqueHoras, "IdBloque", "Nombre");
@@ -45,7 +45,7 @@ namespace AulasPruevas0102.Controllers
             return View();
         }
 
-        // POST: HorariosFijoes/Create
+        // POST: HorariosFijos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -65,7 +65,7 @@ namespace AulasPruevas0102.Controllers
             return View(horariosFijo);
         }
 
-        // GET: HorariosFijoes/Edit/5
+        // GET: HorariosFijos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,7 +83,7 @@ namespace AulasPruevas0102.Controllers
             return View(horariosFijo);
         }
 
-        // POST: HorariosFijoes/Edit/5
+        // POST: HorariosFijos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -102,7 +102,7 @@ namespace AulasPruevas0102.Controllers
             return View(horariosFijo);
         }
 
-        // GET: HorariosFijoes/Delete/5
+        // GET: HorariosFijos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,7 +117,7 @@ namespace AulasPruevas0102.Controllers
             return View(horariosFijo);
         }
 
-        // POST: HorariosFijoes/Delete/5
+        // POST: HorariosFijos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
