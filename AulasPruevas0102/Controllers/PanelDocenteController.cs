@@ -18,8 +18,23 @@ namespace AulasPruevas0102.Controllers
         [ChildActionOnly]
         public ActionResult Horarios()
         {
+            //Equivaler segun ID de docente
+           // Equivaler segun fecha 
             var query = from a in db.HorariosFijos select a;
             return PartialView("_HorariosFijo", query.ToList());
+        }
+        [ChildActionOnly]
+        public ActionResult Materia()
+        {
+            //Equivaler segun ID de docente
+            // Equivaler segun fecha 
+            var query = from a in db.Materias select a;
+            return PartialView("_Materias", query.ToList());
+        }
+        public ActionResult Materias()
+        {
+
+            return View();
         }
         }
 }

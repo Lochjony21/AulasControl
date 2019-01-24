@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AulasPruevas0102.Models.Materia>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreMateria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grupo.Nombre)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreMateria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grupo.Nombre)
+        </td>
+       
+        <td>
+            <form action="/" method="post">
+                <input type="radio" name="name" value="Asistir" />
+                <input type="radio" name="name" value="No asistir" />
+
+            </form>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.IdMateria })*@
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.IdMateria }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdMateria }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdMateria })*@
+        </td>
+    </tr>
+}
+
+</table>

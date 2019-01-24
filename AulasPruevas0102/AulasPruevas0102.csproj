@@ -299,6 +299,8 @@
     <Content Include="Views\HorariosFijos\Details.cshtml" />
     <Content Include="Views\HorariosFijos\Edit.cshtml" />
     <Content Include="Views\HorariosFijos\Index.cshtml" />
+    <Content Include="Views\PanelDocente\Materias.cshtml" />
+    <Content Include="Views\Shared\_Materias.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
