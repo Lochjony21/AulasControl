@@ -16,7 +16,7 @@ namespace AulasPruevas0102
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Ingresar", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

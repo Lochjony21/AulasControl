@@ -117,4 +117,24 @@ textarea {
         -o-transform: rotate(-90deg);
         transform: rotate(-90deg);
     }
-    /*FIN TABS*/
+
+.login {
+    margin: 0px;
+    padding: 0px;
+    background-color: whitesmoke;
+    background-image: url("Images/login-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.login_fondo {
+    background-color: none;
+    height: 100vh;
+}
+
+.login_formulario {
+    background-color: whitesmoke;
+    left: 0;
+    position: relative;
+}

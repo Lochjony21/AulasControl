@@ -1,41 +1,66 @@
 ﻿@model AulasPruevas0102.Models.logueo
-
 @{
     ViewBag.Title = "Index";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body style="margin: 0; padding: 0;">
+    <div class="login container-fluid" style="overflow: hidden;">
+        <div class="row">
+            <div class="login_fondo col">
 
-<h2>Login</h2>
-<div class="container">
-    <div class="row">
-        <div class="@ViewBag.alerta alert alert-warning alert-dismissable" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">
-                    &times;
-                </span>
-            </button>@ViewBag.error
+            </div>
 
+            <div class="login_formulario col-4 row justify-content-center align-items-center">
+                @*<div class="@ViewBag.alerta alert alert-warning alert-dismissable" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">
+                                &times;
+                            </span>
+                        </button>@ViewBag.error
+
+                    </div>*@
+                <form class="" action="@Url.Action("Index","Ingresar")" method="post">
+                    <div>
+                        <hr />
+                        <h1>Iniciar sesión</h1>
+                        <hr />
+                    </div>
+                    <br />
+                    <div class="">
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Usuario:</label>
+                            <input name="user" class="form-control" id="login_usuario" placeholder="Nombre de usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="login_clave" class="col-sm-2 col-form-label">Contraseña</label>
+                            <input name="pass" type="password" class="form-control" id="login_clave" placeholder="******">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" id="app_button" class="btn btn-default btn-outline-dark btn-block" value="Ingresar" name="action">Iniciar sesión</button>
+
+                        </div>
+                    </div>
+                    
+                    <div class="alert">
+                        ¿No tienes cuenta? <a href="@Url.Action("Create","Logeo")">Regístrate</a>
+                    </div>
+                </form>
+            </div>
         </div>
-        <form class="" action="@Url.Action("Index","Ingresar")" method="post">
-
-            <div class="form-group">
-                <label>Email</label>
-                <input name="user" type="text" class="form-control">
-            </div>
-            <div class="form-group">                
-                <label>Contraseña</label>
-                <input id="password" name="pass" type="password" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-info" type="submit" name="action">Iniciar sesión</button>
-
-            </div>
-            <div class="alert">
-                ¿No tienes cuenta? <a href="@Url.Action("Create","Logeo")">Registrate</a>
-            </div>
-        </form>
     </div>
-    
-   
-</div>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
