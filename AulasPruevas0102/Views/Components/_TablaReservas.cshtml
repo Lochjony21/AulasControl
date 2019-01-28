@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AulasPruevas0102.Models.Reserva>
+<div class="component_head">
+    <h3>
+        Últimas reservas
+    </h3>
+    <hr />
+</div>
+<div class="component_body">
+    <div class="container-fluid">
+        <div class="row">
+            @*@{Html.RenderPartial("../Modals/_NuevaReservaModal"); }*@
+            <button type="button" class="btn btn-default btn-block" id="add_button" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-plus-sign"></span> Agregar Reserva
+            </button>
+        </div>
+        <br />
+        <div class="row">
+            <table class="table table-striped">
+                <tr>
+                    <th>#</th>
+                    <th>Reservante</th>
+                    <th>Código de Confirmación</th>
+                    <th>Aula</th>
+                    <th>Fecha</th>
+                    <th>Bloque</th>
+                </tr>
+                 
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdReserva)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CodigoReservante)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.confirmacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Espacio.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BloqueHora.Nombre)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-default pull-right" id="">
+                <span class="glyphicon glyphicon-new-window"></span> Ver todas
+            </button>
+        </div>
+        <br />
+    </div>
+
+</div>
+
+

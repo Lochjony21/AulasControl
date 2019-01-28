@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+@model IEnumerable<AulasPruevas0102.Models.Reserva>
+<div class="container-fluid main_content">
+    <div class="row">
+        <div class="col-sm-7 pull-left component">
+            @{Html.RenderPartial("../Components/_TablaReservas"); }
+        </div>
+        <div class="col-sm-5 pull-right component">
+            @{Html.RenderPartial("../Components/_TimerSalones"); }
+        </div>
+        @*<div class="col-sm-12 pull-right component">
+                @{Html.RenderPartial("../Components/_DetalleAulas"); }
+            </div>*@
+
+    </div>
+
+
+</div>

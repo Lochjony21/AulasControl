@@ -180,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BitacorasController.cs" />
     <Compile Include="Controllers\BloqueHorasController.cs" />
     <Compile Include="Controllers\CarrerasController.cs" />
@@ -302,6 +303,13 @@
     <Content Include="Views\HorariosFijos\Index.cshtml" />
     <Content Include="Views\PanelDocente\Materias.cshtml" />
     <Content Include="Views\Shared\_Materias.cshtml" />
+    <Content Include="Views\Components\_MainBar.cshtml" />
+    <Content Include="Views\Components\_SideBar.cshtml" />
+    <Content Include="Views\Admin\Admin.cshtml" />
+    <Content Include="Views\Components\_TablaReservas.cshtml" />
+    <Content Include="Views\Components\_TimerSalones.cshtml" />
+    <Content Include="Views\Components\_DetalleAulas.cshtml" />
+    <Content Include="Views\Modals\_NuevaReservaModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -311,7 +319,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Docente\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
