@@ -3,31 +3,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<div class="container">
+<div class="container-fluid main_content">
     <div class="row">
-        <div class="col-lg-4">
-            <p>Beinvenido, Usuario</p>
-            <a href="#">Editar datos</a>
-            <hr />
-            <ul class="nav nav-tabs tabs-left ">
-                <li class="active"><a href="#home" data-toggle="tab">Inicio</a></li>
-                <li><a href="#profile" data-toggle="tab">Horarios</a></li>
-                <li><a href="#messages" data-toggle="tab">Materia</a></li>
-                <li><a href="#settings" data-toggle="tab">Estudiantes</a></li>
-            </ul>
-            @*<ul class="list-group">
-                    <li class="list-group-item"><a href="@Url.Action("Materias", "PanelDocente")" class="list-group-item">Materias</a></li>
-                    <li class="list-group-item"><a href="@Url.Action("Horarios", "PanelDocente")" class="list-group-item">Horarios</a></li>
-                    <li class="list-group-item"><a href="@Url.Action("", "PanelDocente")" class="list-group-item">Estudiantes</a></li>
-                </ul>*@
-        </div>
-        <div class="col-lg-6">
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <div class="alert alert-info">
-                        <p>Horario para:</p>
+        <div class="col-sm-12 component">
+            <div class="component_head">
+                <h3>
+                    Horario del día
+                </h3>
+                <hr />
+            </div>
+            <div class="component_body">
+                <div class="container-fluid">
+                    <div class="row alert alert-info">
                         <script>
                             var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
                             var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
@@ -35,41 +22,54 @@
                             document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
                         </script>
                     </div>
-                    <hr />
-                    @{ Html.RenderAction("Horarios"); }
-                </div>
-                <div class="tab-pane" id="profile">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <form action="/" method="post">
-                                <div class="form-group">
-                                    <label>Filtro</label>
-                                    <select>
-                                        <option value="value">Dia</option>
-                                        <option value="value">Semanal</option>
-                                        <option value="value">Mensual</option>
-                                        <option value="value">Materia</option>
-                                    </select>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-12">
-                            @{ Html.RenderAction("Horarios"); }
+                        @{ Html.RenderAction("Horarios"); }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+
+        <div class="col-sm-12 component">
+            <div class="component_head">
+                <h3>
+                    Mi horario
+                </h3>
+                <hr />
+            </div>
+            <div class="component_body">
+                <div class="container-fluid">
+                    <div class="row">
+
+
+                        <h1>Inserte un genial full calendar schedule aquí :D</h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 component">
+            <div class="component_head">
+                <h3>
+                    Mis materias
+                </h3>
+                <hr />
+            </div>
+            <div class="component_body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="">
+                            @{ Html.RenderAction("Materia"); }
                         </div>
                     </div>
-                  
-                </div>
-                <div class="tab-pane" id="messages">
-                    @{ Html.RenderAction("Materia"); }
-                </div>
-                <div class="tab-pane" id="settings">
-
                 </div>
             </div>
 
-
         </div>
     </div>
+
 </div>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
