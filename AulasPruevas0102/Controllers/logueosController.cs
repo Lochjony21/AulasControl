@@ -52,8 +52,18 @@ namespace AulasPruevas0102.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.logueos.Add(logueo);
+                string pass = Helper.EncodePassword(logueo.Clave);
+                var datos = new logueo()
+                {
+                    IdLogueo = logueo.IdLogueo,
+                    IdUsuario = logueo.IdUsuario,
+                    Usuario = logueo.Usuario,
+                    Clave = logueo.Clave,
+                    Estado = logueo.Estado
+                };
+                db.logueos.Add(datos);
                 db.SaveChanges();
+                ViewBag.resultado = "Registro creado con éxito";
                 return RedirectToAction("Index");
             }
 
@@ -64,18 +74,19 @@ namespace AulasPruevas0102.Controllers
         // GET: logueos/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            logueo logueo = db.logueos.Find(id);
-            if (logueo == null)
-            {
-                return RedirectToAction("Index");
-            }
-            ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Nombre", logueo.IdUsuario);
-            return View(logueo);
+           
+                if (id == null){
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                logueo logueo = db.logueos.Find(id);
+                if (logueo == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Nombre", logueo.IdUsuario);
+                return View(logueo);
+            
+            
         }
 
         // POST: logueos/Edit/5
@@ -96,7 +107,7 @@ namespace AulasPruevas0102.Controllers
                     Clave = logueo.Clave,
                     Estado = logueo.Estado
                 };
-                db.Entry(logueo).State = EntityState.Modified;
+                db.Entry(dato).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
