@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AulaBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoraFecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Accion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BloqueHoras">
+    <Key>
+      <PropertyRef Name="IdBloque" />
+    </Key>
+    <Property Name="IdBloque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreBloque" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoraInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HoraFin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Turno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Horario" Relationship="Self.FK__Horario__IdBloqu__3A4CA8FD" FromRole="BloqueHoras" ToRole="Horario" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__IdBloqu__245D67DE" FromRole="BloqueHoras" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Carrera">
+    <Key>
+      <PropertyRef Name="IdCarrera" />
+    </Key>
+    <Property Name="IdCarrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdFacultad" Type="Int32" />
+    <Property Name="NombreCarrera" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Facultad" Relationship="Self.FK__Carrera__IdFacul__17F790F9" FromRole="Carrera" ToRole="Facultad" />
+    <NavigationProperty Name="Grupo" Relationship="Self.FK__Grupo__IdCarrera__1AD3FDA4" FromRole="Carrera" ToRole="Grupo" />
+  </EntityType>
+  <EntityType Name="CorreoUsuario">
+    <Key>
+      <PropertyRef Name="IdCorreo" />
+    </Key>
+    <Property Name="IdCorreo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__CorreoUsu__IdUsu__2EDAF651" FromRole="CorreoUsuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Espacio">
+    <Key>
+      <PropertyRef Name="IdEspacio" />
+    </Key>
+    <Property Name="IdEspacio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreEspacio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Capacidad" Type="Int32" Nullable="false" />
+    <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HorariosFijos" Relationship="Self.FK__HorariosF__IdEsp__367C1819" FromRole="Espacio" ToRole="HorariosFijos" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__IdEspac__236943A5" FromRole="Espacio" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Facultad">
+    <Key>
+      <PropertyRef Name="IdFacultad" />
+    </Key>
+    <Property Name="IdFacultad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreFacultad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK__Carrera__IdFacul__17F790F9" FromRole="Facultad" ToRole="Carrera" />
+  </EntityType>
+  <EntityType Name="Grupo">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+    </Key>
+    <Property Name="IdGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCarrera" Type="Int32" />
+    <Property Name="NombreGrupo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK__Grupo__IdCarrera__1AD3FDA4" FromRole="Grupo" ToRole="Carrera" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK__Materia__IdGrupo__31B762FC" FromRole="Grupo" ToRole="Materia" />
+  </EntityType>
+  <EntityType Name="Horario">
+    <Key>
+      <PropertyRef Name="IdHorario" />
+    </Key>
+    <Property Name="IdHorario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdHorarioFijo" Type="Int32" />
+    <Property Name="IdBloque" Type="Int32" />
+    <Property Name="Dia" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BloqueHoras" Relationship="Self.FK__Horario__IdBloqu__3A4CA8FD" FromRole="Horario" ToRole="BloqueHoras" />
+    <NavigationProperty Name="HorariosFijos" Relationship="Self.FK__Horario__IdHorar__395884C4" FromRole="Horario" ToRole="HorariosFijos" />
+  </EntityType>
+  <EntityType Name="HorariosFijos">
+    <Key>
+      <PropertyRef Name="IdHorarioFijo" />
+    </Key>
+    <Property Name="IdHorarioFijo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMateria" Type="Int32" />
+    <Property Name="IdEspacio" Type="Int32" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Espacio" Relationship="Self.FK__HorariosF__IdEsp__367C1819" FromRole="HorariosFijos" ToRole="Espacio" />
+    <NavigationProperty Name="Horario" Relationship="Self.FK__Horario__IdHorar__395884C4" FromRole="HorariosFijos" ToRole="Horario" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK__HorariosF__IdMat__3587F3E0" FromRole="HorariosFijos" ToRole="Materia" />
+  </EntityType>
+  <EntityType Name="InscripcionMateria">
+    <Key>
+      <PropertyRef Name="IdInscripcion" />
+    </Key>
+    <Property Name="IdInscripcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdInscrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdMateria" Type="Int32" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Inscripci__IdIns__3D2915A8" FromRole="InscripcionMateria" ToRole="Usuario" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK__Inscripci__IdMat__3E1D39E1" FromRole="InscripcionMateria" ToRole="Materia" />
+  </EntityType>
+  <EntityType Name="Logueo">
+    <Key>
+      <PropertyRef Name="IdLogueo" />
+    </Key>
+    <Property Name="IdLogueo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Clave" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.FK__Logueo__IdUsuari__29221CFB" FromRole="Logueo" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Materia">
+    <Key>
+      <PropertyRef Name="IdMateria" />
+    </Key>
+    <Property Name="IdMateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreMateria" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdGrupo" Type="Int32" />
+    <Property Name="IdUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Grupo" Relationship="Self.FK__Materia__IdGrupo__31B762FC" FromRole="Materia" ToRole="Grupo" />
+    <NavigationProperty Name="HorariosFijos" Relationship="Self.FK__HorariosF__IdMat__3587F3E0" FromRole="Materia" ToRole="HorariosFijos" />
+    <NavigationProperty Name="InscripcionMateria" Relationship="Self.FK__Inscripci__IdMat__3E1D39E1" FromRole="Materia" ToRole="InscripcionMateria" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Materia__IdUsuar__32AB8735" FromRole="Materia" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="IdReserva" />
+    </Key>
+    <Property Name="IdReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoReservante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdEspacio" Type="Int32" />
+    <Property Name="IdBloque" Type="Int32" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Confirmacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BloqueHoras" Relationship="Self.FK__Reserva__IdBloqu__245D67DE" FromRole="Reserva" ToRole="BloqueHoras" />
+    <NavigationProperty Name="Espacio" Relationship="Self.FK__Reserva__IdEspac__236943A5" FromRole="Reserva" ToRole="Espacio" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TelefonoUsuario">
+    <Key>
+      <PropertyRef Name="IdTelefono" />
+    </Key>
+    <Property Name="IdTelefono" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__TelefonoU__IdUsu__2BFE89A6" FromRole="TelefonoUsuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CorreoUsuario" Relationship="Self.FK__CorreoUsu__IdUsu__2EDAF651" FromRole="Usuario" ToRole="CorreoUsuario" />
+    <NavigationProperty Name="InscripcionMateria" Relationship="Self.FK__Inscripci__IdIns__3D2915A8" FromRole="Usuario" ToRole="InscripcionMateria" />
+    <NavigationProperty Name="Logueo" Relationship="Self.FK__Logueo__IdUsuari__29221CFB" FromRole="Usuario" ToRole="Logueo" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK__Materia__IdUsuar__32AB8735" FromRole="Usuario" ToRole="Materia" />
+    <NavigationProperty Name="TelefonoUsuario" Relationship="Self.FK__TelefonoU__IdUsu__2BFE89A6" FromRole="Usuario" ToRole="TelefonoUsuario" />
+  </EntityType>
+  <Association Name="FK__Horario__IdBloqu__3A4CA8FD">
+    <End Role="BloqueHoras" Type="Self.BloqueHoras" Multiplicity="0..1" />
+    <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BloqueHoras">
+        <PropertyRef Name="IdBloque" />
+      </Principal>
+      <Dependent Role="Horario">
+        <PropertyRef Name="IdBloque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reserva__IdBloqu__245D67DE">
+    <End Role="BloqueHoras" Type="Self.BloqueHoras" Multiplicity="0..1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BloqueHoras">
+        <PropertyRef Name="IdBloque" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="IdBloque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carrera__IdFacul__17F790F9">
+    <End Role="Facultad" Type="Self.Facultad" Multiplicity="0..1" />
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facultad">
+        <PropertyRef Name="IdFacultad" />
+      </Principal>
+      <Dependent Role="Carrera">
+        <PropertyRef Name="IdFacultad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grupo__IdCarrera__1AD3FDA4">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1" />
+    <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="IdCarrera" />
+      </Principal>
+      <Dependent Role="Grupo">
+        <PropertyRef Name="IdCarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CorreoUsu__IdUsu__2EDAF651">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="CorreoUsuario" Type="Self.CorreoUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="CorreoUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HorariosF__IdEsp__367C1819">
+    <End Role="Espacio" Type="Self.Espacio" Multiplicity="0..1" />
+    <End Role="HorariosFijos" Type="Self.HorariosFijos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Espacio">
+        <PropertyRef Name="IdEspacio" />
+      </Principal>
+      <Dependent Role="HorariosFijos">
+        <PropertyRef Name="IdEspacio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reserva__IdEspac__236943A5">
+    <End Role="Espacio" Type="Self.Espacio" Multiplicity="0..1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Espacio">
+        <PropertyRef Name="IdEspacio" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="IdEspacio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Materia__IdGrupo__31B762FC">
+    <End Role="Grupo" Type="Self.Grupo" Multiplicity="0..1" />
+    <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupo">
+        <PropertyRef Name="IdGrupo" />
+      </Principal>
+      <Dependent Role="Materia">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Horario__IdHorar__395884C4">
+    <End Role="HorariosFijos" Type="Self.HorariosFijos" Multiplicity="0..1" />
+    <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HorariosFijos">
+        <PropertyRef Name="IdHorarioFijo" />
+      </Principal>
+      <Dependent Role="Horario">
+        <PropertyRef Name="IdHorarioFijo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HorariosF__IdMat__3587F3E0">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+    <End Role="HorariosFijos" Type="Self.HorariosFijos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="IdMateria" />
+      </Principal>
+      <Dependent Role="HorariosFijos">
+        <PropertyRef Name="IdMateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inscripci__IdIns__3D2915A8">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="InscripcionMateria" Type="Self.InscripcionMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="InscripcionMateria">
+        <PropertyRef Name="IdInscrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inscripci__IdMat__3E1D39E1">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+    <End Role="InscripcionMateria" Type="Self.InscripcionMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="IdMateria" />
+      </Principal>
+      <Dependent Role="InscripcionMateria">
+        <PropertyRef Name="IdMateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Logueo__IdUsuari__29221CFB">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Logueo" Type="Self.Logueo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Logueo">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Materia__IdUsuar__32AB8735">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Materia">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TelefonoU__IdUsu__2BFE89A6">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="TelefonoUsuario" Type="Self.TelefonoUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="TelefonoUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AulaBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+    <EntitySet Name="BloqueHoras" EntityType="Self.BloqueHoras" />
+    <EntitySet Name="Carrera" EntityType="Self.Carrera" />
+    <EntitySet Name="CorreoUsuario" EntityType="Self.CorreoUsuario" />
+    <EntitySet Name="Espacio" EntityType="Self.Espacio" />
+    <EntitySet Name="Facultad" EntityType="Self.Facultad" />
+    <EntitySet Name="Grupo" EntityType="Self.Grupo" />
+    <EntitySet Name="Horario" EntityType="Self.Horario" />
+    <EntitySet Name="HorariosFijos" EntityType="Self.HorariosFijos" />
+    <EntitySet Name="InscripcionMateria" EntityType="Self.InscripcionMateria" />
+    <EntitySet Name="Logueo" EntityType="Self.Logueo" />
+    <EntitySet Name="Materia" EntityType="Self.Materia" />
+    <EntitySet Name="Reserva" EntityType="Self.Reserva" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TelefonoUsuario" EntityType="Self.TelefonoUsuario" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__Horario__IdBloqu__3A4CA8FD" Association="Self.FK__Horario__IdBloqu__3A4CA8FD">
+      <End Role="BloqueHoras" EntitySet="BloqueHoras" />
+      <End Role="Horario" EntitySet="Horario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reserva__IdBloqu__245D67DE" Association="Self.FK__Reserva__IdBloqu__245D67DE">
+      <End Role="BloqueHoras" EntitySet="BloqueHoras" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carrera__IdFacul__17F790F9" Association="Self.FK__Carrera__IdFacul__17F790F9">
+      <End Role="Facultad" EntitySet="Facultad" />
+      <End Role="Carrera" EntitySet="Carrera" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grupo__IdCarrera__1AD3FDA4" Association="Self.FK__Grupo__IdCarrera__1AD3FDA4">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="Grupo" EntitySet="Grupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CorreoUsu__IdUsu__2EDAF651" Association="Self.FK__CorreoUsu__IdUsu__2EDAF651">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="CorreoUsuario" EntitySet="CorreoUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HorariosF__IdEsp__367C1819" Association="Self.FK__HorariosF__IdEsp__367C1819">
+      <End Role="Espacio" EntitySet="Espacio" />
+      <End Role="HorariosFijos" EntitySet="HorariosFijos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reserva__IdEspac__236943A5" Association="Self.FK__Reserva__IdEspac__236943A5">
+      <End Role="Espacio" EntitySet="Espacio" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Materia__IdGrupo__31B762FC" Association="Self.FK__Materia__IdGrupo__31B762FC">
+      <End Role="Grupo" EntitySet="Grupo" />
+      <End Role="Materia" EntitySet="Materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Horario__IdHorar__395884C4" Association="Self.FK__Horario__IdHorar__395884C4">
+      <End Role="HorariosFijos" EntitySet="HorariosFijos" />
+      <End Role="Horario" EntitySet="Horario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HorariosF__IdMat__3587F3E0" Association="Self.FK__HorariosF__IdMat__3587F3E0">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="HorariosFijos" EntitySet="HorariosFijos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inscripci__IdIns__3D2915A8" Association="Self.FK__Inscripci__IdIns__3D2915A8">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="InscripcionMateria" EntitySet="InscripcionMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inscripci__IdMat__3E1D39E1" Association="Self.FK__Inscripci__IdMat__3E1D39E1">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="InscripcionMateria" EntitySet="InscripcionMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Logueo__IdUsuari__29221CFB" Association="Self.FK__Logueo__IdUsuari__29221CFB">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Logueo" EntitySet="Logueo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Materia__IdUsuar__32AB8735" Association="Self.FK__Materia__IdUsuar__32AB8735">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Materia" EntitySet="Materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TelefonoU__IdUsu__2BFE89A6" Association="Self.FK__TelefonoU__IdUsu__2BFE89A6">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="TelefonoUsuario" EntitySet="TelefonoUsuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

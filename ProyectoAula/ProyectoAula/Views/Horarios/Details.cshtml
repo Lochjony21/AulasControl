@@ -1,0 +1,50 @@
+﻿@model ProyectoAula.Models.Horario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Horario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BloqueHoras.NombreBloque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloqueHoras.NombreBloque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorariosFijos.IdHorarioFijo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorariosFijos.IdHorarioFijo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdHorario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

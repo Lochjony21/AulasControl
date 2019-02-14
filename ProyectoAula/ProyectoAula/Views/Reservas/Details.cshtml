@@ -1,0 +1,66 @@
+﻿@model ProyectoAula.Models.Reserva
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoReservante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoReservante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Confirmacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Confirmacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BloqueHoras.NombreBloque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloqueHoras.NombreBloque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Espacio.NombreEspacio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Espacio.NombreEspacio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdReserva }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
