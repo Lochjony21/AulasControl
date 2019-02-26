@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+<div class="container-fluid main_content">
+    <div class="row">
+        <div class="col-sm-12 pull-left component">
+            <br />
+            <div class="alert alert-info" style="text-align:center;">
+                <h1>Hola, @User.Identity.GetUserName()</h1>
+                @{
+                    if (User.IsInRole("Administrador"))
+                    {
+                        
+                        <div class="btn btn-default btn-lg"> @Html.ActionLink("Comenzar", "Panel", "Panel")</div>
+                    }
+                    else if (User.IsInRole("Docente"))
+                    {
+                        <div class="btn btn-default btn-lg">@Html.ActionLink("Comenzar", "Index", "Docente")</div>
+                    }
+
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fff607a432514416a9258bdd3d049cad" Name="Diagram1">
+        <EntityTypeShape EntityType="AulaBaseModel.Bitacora" Width="1.5" PointX="2.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.BloqueHoras" Width="1.5" PointX="8.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Carrera" Width="1.5" PointX="1.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.CorreoUsuario" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Espacio" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Facultad" Width="1.5" PointX="1.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Grupo" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Horario" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.HorariosFijos" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.InscripcionMateria" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Logueo" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Materia" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Reserva" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.TelefonoUsuario" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AulaBaseModel.Usuario" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="AulaBaseModel.FK__Horario__IdBloqu__3A4CA8FD" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Reserva__IdBloqu__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Carrera__IdFacul__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Grupo__IdCarrera__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__CorreoUsu__IdUsu__2EDAF651" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__HorariosF__IdEsp__367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Reserva__IdEspac__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Materia__IdGrupo__31B762FC" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Horario__IdHorar__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__HorariosF__IdMat__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Inscripci__IdIns__3D2915A8" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Inscripci__IdMat__3E1D39E1" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Logueo__IdUsuari__29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__Materia__IdUsuar__32AB8735" ManuallyRouted="false" />
+        <AssociationConnector Association="AulaBaseModel.FK__TelefonoU__IdUsu__2BFE89A6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

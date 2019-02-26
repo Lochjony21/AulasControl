@@ -1,0 +1,70 @@
+﻿#add_button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0px;
+}
+
+.body-content {
+    background-color: whitesmoke;
+}
+
+.component {
+    background-color: white;
+    border: solid whitesmoke 5px;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.login {
+    margin: 0px;
+    padding: 0px;
+    background-color: whitesmoke;
+    background-image: url("Images/login-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.login_fondo {
+    background-color: none;
+    height: 100vh;
+}
+
+.login_formulario {
+    background-color: whitesmoke;
+    left: 0;
+    position: relative;
+}
+
+.main_content {
+    border: solid whitesmoke 5px;
+}
+
+
+#app_button {
+    border-radius: 0px;
+}
+
+#app_navbar .navbar {
+    background-color: black;
+    border-color: #432511;
+    border-radius: 0px;
+    color: white;
+    margin: 0px;
+}
+
+#app_sidebar {
+    height: 100vh;
+    position: fixed;
+    border-radius: 0px;
+}

@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - </title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+
+<body>
+   
+    <br />
+    <div class="container">
+            <div class="component">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4 ">
+                        <hr />
+                        <div class="row">
+                            <hr />
+                            <h1 class="text-center">Reservar</h1>
+                            <hr />
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Código: </label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="codigo" value="" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Espacio: </label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="espacio" value="" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Bloque: </label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="IdBloque" value="" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"> Fecha: </label>
+                                    <div class="col-md-10">
+                                        <input type="date" name="Fecha" value="" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Reservar" class="btn btn-warning btn-block btn-lg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr />
+                            <a href="@Url.Action("Login","Account")" class="btn btn-lg btn-default btn-block">Iniciar sesión</a>
+                            <hr />
+                        </div>
+                       
+
+                    </div>
+                  
+                </div>
+            
+
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - AULI App</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

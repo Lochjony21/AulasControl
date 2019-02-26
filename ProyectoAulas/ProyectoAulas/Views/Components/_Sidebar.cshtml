@@ -1,0 +1,16 @@
+﻿<aside id="app_sidebar" class="navbar navbar-inverse col-sm-2 pull-left">
+    <div id="sidebar_head">
+        <h2>
+            AULI
+        </h2>
+    </div>
+    <div class="sidebar_body">
+        @if (User.IsInRole("Administrador"))
+        {
+            <ul class="list-unstyled">
+                <li class="item"><a href="@Url.Action("Login","Account")" ><h3>Ingresar</h3></a></li>
+            </ul>
+
+        }
+    </div>
+</aside>

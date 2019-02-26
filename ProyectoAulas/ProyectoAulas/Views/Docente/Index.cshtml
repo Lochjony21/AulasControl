@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@{ViewBag.Title = "Admin"; }
+@section UpperHelpers{
+    <link rel="stylesheet" href="~/Scripts/fullcalendar/fullcalendar.css" />
+    <script src="~/Scripts/fullcalendar/lib/jquery.min.js"></script>
+    <script src="~/Scripts/fullcalendar/lib/moment.min.js"></script>
+    <script src="~/Scripts/fullcalendar/fullcalendar.js"></script>
+}
+
+<div class="container-fluid main_content">
+    <div class="row">
+        <div class="col-sm-12 pull-right component">
+            @{Html.RenderPartial("../Components/_Calendar"); }
+        </div>
+        <div class="col-sm-12 pull-right component">
+            @{Html.RenderPartial("../Components/_CalendarMonthly"); }
+        </div>
+    </div>
+</div>
+@section BottomHelpers{
+    <!--Incluir esta línea para que traduzca automáticamente: -->
+    <script src='~/Scripts/fullcalendar/locale/es.js'></script>
+    <script>
+        /*Esta es la main function, una vez que carga la página*/
+        $(function () {
+            /*Llamado del fullcalendar, es la carga predeterminada*/
+            $('#calendar').fullCalendar({
+                /*vista por defecto*/
+                defaultView: 'agendaWeek',
+
+                /*sin fines de semana*/
+                weekends: false
+            });
+            $('#calendarMonthly').fullCalendar({
+                /*vista por defecto*/
+                defaultView: 'month',
+
+                /*sin fines de semana*/
+                weekends: false
+            });
+        });
+    </script>
+}

@@ -1,0 +1,84 @@
+﻿@using ProyectoAulas.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - </title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="login container-fluid" style="overflow: hidden;">
+        <div class="row">
+            <div class="login_fondo col">
+
+            </div>
+            <div class="login_formulario col-4 row justify-content-center align-items-center">
+                
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                <div>
+                    <hr />
+                    <h1>Iniciar sesión</h1>
+                    <hr />
+                </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label class = "col-sm-2 col-form-label">Usuario</label>
+                       
+                            @Html.TextBoxFor(m => m.NombreUsuario, new { @class = "form-control", @id = "login_usuario",
+                           @name = "login_usuario" })
+                            @Html.ValidationMessageFor(m => m.NombreUsuario, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 col-form-label" })
+                        
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "login_clave", @placeholder = "******", @name = "login_clave" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                       
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Iniciar sesión" class="btn btn-default btn-outline-dark btn-block" />
+                        </div>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Registrar como nuevo usuario", "Register")
+                    </p>
+                    @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
+            <p>
+                @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+            </p>*@
+                }
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

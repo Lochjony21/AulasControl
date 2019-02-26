@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@{
+    if (User.IsInRole("Administrador"))
+    {
+        <h1>ERES ADMINISTRADOR</h1>
+    }
+    else if (User.IsInRole("Docente"))
+    {
+        <h1>Docente</h1>
+    }
+    else
+    {
+        <h1>Usuario</h1>
+    }
+
+}
